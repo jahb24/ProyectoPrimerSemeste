@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void pause(int dura);
+void pause(int dura);       //Funcion para pausar la pantalla por un tiempo.
 int tablas(int, int);
 
 int main()
@@ -19,7 +19,7 @@ int main()
 
     menu:
         system("cls");
-        srand(time(NULL));
+        srand(time(NULL));      
     cout<<"PROYECTO"<<endl;
     cout<<"\nIntroduzca la opcion que desea realizar."<<endl
         <<"[1] Jugar"<<endl
@@ -425,7 +425,7 @@ int main()
     return 0;
 }
 
-void pause(int dura){
+void pause(int dura){       //Es la funcion que ayuda a pausar la pantalla por un momento.
     int tiempo = time(NULL) + dura;
 
     while(tiempo > time(NULL));
