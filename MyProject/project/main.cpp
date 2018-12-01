@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>     //Este include nos ayuda al momento de poner el rand() y que nos escoja numeros aleatorios. y poder usar los system() y poder limpiar la pantalla en nuestro caso.
 #include <time.h>       //Este include nos ayuda al momento de utilizar el tiempo, en este caso los segundos en la funcion para pausar la pantalla.
-#include <thread>       //
+#include <thread>       //Este include nos ayuda para cuando se esta utilizando al funcion de pause() como quien dice se utilizan juntas <thread> y <time.h> para hacer la pausa de la pantalla.
 #include <iomanip>      //Este include nos ayuda para poder poner los setw que vendrian siendo lo que nos ayuda acomodar el texto mas formal se podria decir.
 
 using namespace std;
