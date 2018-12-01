@@ -1,25 +1,25 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
-#include <thread>
-#include <iomanip>
+#include <stdlib.h>     //Este include nos ayuda al momento de poner el rand() y que nos escoja numeros aleatorios. y poder usar los system() y poder limpiar la pantalla en nuestro caso.
+#include <time.h>       //Este include nos ayuda al momento de utilizar el tiempo, en este caso los segundos en la funcion para pausar la pantalla.
+#include <thread>       //
+#include <iomanip>      //Este include nos ayuda para poder poner los setw que vendrian siendo lo que nos ayuda acomodar el texto mas formal se podria decir.
 
 using namespace std;
 
 void pause(int dura);       //Funcion para pausar la pantalla por un tiempo.
-int tablas(int, int);
+int tablas(int, int);       //Funcion que nos ayuda para la opcion "Aprender tablas".
 
 int main()
 {
-    const int NUM = 3;
+    const int NUM = 3;      //ES la constante que se utiliza en los ciclos for para hacer los calculos de matrices.
     int opcion = 0, vidas = 3, num1J = 0, num2J = 0, score = 0, respuestaJ = 0, nivel = 1, operacion = 0,
-        tabla = 0, conta = 0, tab = 0, contaM = 1, m [NUM][NUM], ran = 0;
-    float num1C = 0, num2C = 0, det = 0, traza = 0;
+        tabla = 0, conta = 0, tab = 0, contaM = 1, m [NUM][NUM], ran = 0;       //Aqui estan declaradas todas las variables de tipo entero con sus respectivos nombres simbolicos.
+    float num1C = 0, num2C = 0, det = 0, traza = 0;     //Aqui estan declaradas todas las variables de tipo flotante con sus respectivos nombres simbolicos.
     string nombre, tipo;
 
     menu:
-        system("cls");
-        srand(time(NULL));      
+        system("cls"); //todos los system("cls") nos ayuda a limpiar la pantalla que se esta trabajando.
+        srand(time(NULL));        //Sirve para ayudar al momento de usar la funcion que detiene el la pantalla pause()
     cout<<"PROYECTO"<<endl;
     cout<<"\nIntroduzca la opcion que desea realizar."<<endl
         <<"[1] Jugar"<<endl
@@ -29,7 +29,7 @@ int main()
         <<"[5] Salir"<<endl;
     cin>>opcion;
 
-    switch(opcion){
+    switch(opcion){         //Es el switch que nos ayuda a buscar la opcion deseada.
     case 1:
         system("cls");
 
@@ -38,17 +38,17 @@ int main()
         cin>>nombre;
         
         juego_n:
-        nivel=1, score=0, vidas=3;
+        nivel=1, score=0, vidas=3;      //Reinicia los variables a como estaban antes de comenzar el programa y poder iniciar de nuevo.
         juego:
         level:
         system("cls");
-        cout<<"Nivel "<<nivel<<setw(20)<<"Puntaje: "<<score<<setw(20)<<"Vidas: "<<vidas<<endl;
+        cout<<"Nivel "<<nivel<<setw(20)<<"Puntaje: "<<score<<setw(20)<<"Vidas: "<<vidas<<endl;      //setw nos ayuda a tener un espacio entre los datos que vamos a mostrar.
 
-        switch (nivel){
+        switch (nivel){     //Este switch es para cuando en el juego avanzamos de nivel vaya aumentando la dificultad.
         case 1:
             if (score >= 80){
-                nivel ++;
-                goto level;
+                nivel += 1;
+                goto level;     //Nos manda al level para poder iniciar la variable nivel con su respectivo valor aumentandole 1.
             }else{
             num1J = (rand() % 21);
             num2J = (rand() % 21);
@@ -57,12 +57,12 @@ int main()
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 20;
-                pause(1.5);
-                goto juego;
+                pause(1.5);     //Todos los pause() sirven para poder detener la pantalla de la consola por un momento.
+                goto juego;     //Nos manda al juego de nuevo para crear nuevos numeros aleatorios.
             }else{
                 cout<<"Incorrecto"<<endl;
                 score -= 5;
-                vidas --;
+                vidas -= 1;
                     if(vidas == 0){
                         system("cls");
                         cout<<"Has perdido."<<endl
@@ -73,14 +73,14 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego_n;
+                            goto juego_n;       //Nos manda al juego donde se reinician variables y asi poder volver a jugar con nuevo puntaje, 3 vidas y nivel 1.
                             break;
                         case 2:
-                            goto menu;
+                            goto menu;          //Nos manda al menu principal.
                             break;
                         default:
                             cout<<"Esa no es una opcion."<<endl;
-                            goto opcionJ;
+                            goto opcionJ;       //Al momento de elegir una opcion erronea, nos manda a vovler a elegir otra opcion.
                             break;
                         }
 
@@ -280,7 +280,7 @@ int main()
             <<"[5] Regresar al menu principal"<<endl;
         cin>>operacion;
 
-        switch(operacion){
+        switch(operacion){      //Este switch busca cual operacion eligió el usuario para calcular.
         case 1:
             system ("cls");
             cout<<"Suma"<<endl;
@@ -290,7 +290,7 @@ int main()
             cin>>num2C;
             cout<<"El resultado es "<<num1C+num2C<<endl;
             pause(5);
-            goto calculadora;
+            goto calculadora;       //Nos regresa a la calculadora por si queremos hacer otro calculo o salir.
             break;
         case 2:
             system("cls");
@@ -324,7 +324,7 @@ int main()
             cin>>num2C;
             if (num2C == 0){
                 cout<<"\nNo se puede realizar la operacion.\nDigite otro numero distinto a 0.\n"<<endl;
-                goto div;
+                goto div;       //Nos manda a volver a introducir el segundo numero de la division.
             }else{
                 cout<<"El resultado es "<<num1C/num2C<<endl;
                 pause(5);
@@ -337,21 +337,21 @@ int main()
         default:
             cout<<"Opcion no valida"<<endl;
             pause(5);
-            goto calculadora;
+            goto calculadora;       //Nos manda a la calculadora para volver a introducir una opcion y proceder con el calculo.
         }
         break;
     case 3:
         aprender:
             system("cls");
-            cout<<"Aprender Tablas"<<endl;
+            cout<<"Aprender Tablas"<<endl;      //Aqui se aprenderan las tablas del numero que se desee.
             cout<<"Digite el numero de la tabla que desea aprender: ";
             cin>>tabla;
-            tablas(tabla, conta);
+            tablas(tabla, conta);       //Manda a llamar la funcion recursiva para calcular las tablas.
             opcion:
             cout<<"\n[1] Para aprender de nuevo"<<endl
                 <<"[2] Para regresar al menu principal"<<endl;
             cin>>operacion;
-            switch(operacion){
+            switch(operacion){      //Busca la opcion si queremos aprender otra tabla o regresar al menu principal.
             case 1:
                 goto aprender;
                 break;
@@ -372,7 +372,7 @@ int main()
             <<"[4, 5, 6]"<<endl
             <<"[7, 8, 9]"<<endl;
 
-            for (int i = 0; i<NUM; i++){
+            for (int i = 0; i<NUM; i++){        
                 for (int j = 0; j<NUM; j++){
                     cout<<contaM<< " = ";
                     cin>>m[i][j];
@@ -433,7 +433,7 @@ void pause(int dura){       //Es la funcion que ayuda a pausar la pantalla por u
     while(tiempo > time(NULL));
 }
 
-int tablas(int tab, int conta){
+int tablas(int tab, int conta){     //Funcion recursiva para aprender las tablas.
     conta++;
     if(conta <= 10){
         cout<<tab<<" x "<<setw(2)<<conta<< " = "<<conta * tab<<endl;
