@@ -31,12 +31,14 @@ int main()
 
     switch(opcion){
     case 1:
-        system("cls");  //Para hacer una limpia de pantalla de lo que está actualmente.
+        system("cls");
 
         cout<<"Jugar"<<endl;
         cout<<"Introduce tu nombre: "<<endl;
         cin>>nombre;
-
+        
+        juego_n:
+        nivel=1, score=0, vidas=3;
         juego:
         level:
         system("cls");
@@ -45,22 +47,22 @@ int main()
         switch (nivel){
         case 1:
             if (score >= 80){
-                nivel += 1;
+                nivel ++;
                 goto level;
             }else{
-            num1J = (rand() % 20) + 1;  //Elige un numero aleatorio de 1 a 20.
-            num2J = (rand() % 20) + 1;  //Elige numero dos aleatorio de 1 a 20.
+            num1J = (rand() % 21);
+            num2J = (rand() % 21);
             cout<<"Cuanto es "<<num1J<<" sumado a "<<num2J<<": "<<endl;
             cin>>respuestaJ;
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 20;
-                pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                pause(1.5);
                 goto juego;
             }else{
                 cout<<"Incorrecto"<<endl;
                 score -= 5;
-                vidas -= 1;
+                vidas --;
                     if(vidas == 0){
                         system("cls");
                         cout<<"Has perdido."<<endl
@@ -71,7 +73,7 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego;
+                            goto juego_n;
                             break;
                         case 2:
                             goto menu;
@@ -83,7 +85,7 @@ int main()
                         }
 
                     }else{
-                    pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                    pause(1.5);
                     goto juego;
                     }
                 }
@@ -94,14 +96,14 @@ int main()
                 nivel += 1;
                 goto level;
             }else{
-            num1J = (rand() % 40) + 1;      //Elige un numero aleatorio de 1 a 40.
-            num2J = (rand() % 40) + 1;      //Elige numero dos aleatorio de 1 a 40.
+            num1J = (rand() % 41);
+            num2J = (rand() % 41);
             cout<<"Cuanto es "<<num1J<<" sumado a "<<num2J<<": "<<endl;
             cin>>respuestaJ;
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 30;
-                pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                pause(1.5);
                 goto juego;
             }else{
                 cout<<"Incorrecto"<<endl;
@@ -117,7 +119,7 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego;
+                            goto juego_n;
                             break;
                         case 2:
                             goto menu;
@@ -128,7 +130,7 @@ int main()
                             break;
                         }
                     }else{
-                    pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                    pause(1.5);
                     goto juego;
                     }
                 }
@@ -139,14 +141,14 @@ int main()
                 nivel += 1;
                 goto level;
             }else{
-            num1J = (rand() % 60) + 1;      //Elige un numero aleatorio de 1 a 60.
-            num2J = (rand() % 60) + 1;      //Elige numero dos aleatorio de 1 a 60.
+            num1J = (rand() % 61);
+            num2J = (rand() % 61);
             cout<<"Cuanto es "<<num1J<<" sumado a "<<num2J<<": "<<endl;
             cin>>respuestaJ;
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 50;
-                pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                pause(1.5);
                 goto juego;
             }else{
                 cout<<"Incorrecto"<<endl;
@@ -162,7 +164,7 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego;
+                            goto juego_n;
                             break;
                         case 2:
                             goto menu;
@@ -173,7 +175,7 @@ int main()
                             break;
                         }
                     }else{
-                    pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                    pause(1.5);
                     goto juego;
                     }
                 }
@@ -184,14 +186,14 @@ int main()
                 nivel += 1;
                 goto level;
             }else{
-            num1J = (rand() % 80) + 1;      //Elige un numero aleatorio de 1 a 80.
-            num2J = (rand() % 80) + 1;      //Elige numero dos aleatorio de 1 a 80.
+            num1J = (rand() % 81);
+            num2J = (rand() % 81);
             cout<<"Cuanto es "<<num1J<<" sumado a "<<num2J<<": "<<endl;
             cin>>respuestaJ;
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 75;
-                pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                pause(1.5);
                 goto juego;
             }else{
                 cout<<"Incorrecto"<<endl;
@@ -207,7 +209,7 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego;
+                            goto juego_n;
                             break;
                         case 2:
                             goto menu;
@@ -218,21 +220,21 @@ int main()
                             break;
                         }
                     }else{
-                    pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                    pause(1.5);
                     goto juego;
                     }
                 }
             }
             break;
         case 5:
-            num1J = (rand() % 100) + 1;     //Elige un numero aleatorio de 1 a 100.
-            num2J = (rand() % 100) + 1;     //Elige numero dos aleatorio de 1 a 100.
+            num1J = (rand() % 101);
+            num2J = (rand() % 101);
             cout<<"Cuanto es "<<num1J<<" sumado a "<<num2J<<": "<<endl;
             cin>>respuestaJ;
                 if(respuestaJ == num1J+num2J){
                 cout<<"Correcto"<<endl;
                 score += 100;
-                pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                pause(1.5);
                 goto juego;
             }else{
                 cout<<"Incorrecto"<<endl;
@@ -248,7 +250,7 @@ int main()
                         cin>>opcion;
                         switch(opcion){
                         case 1:
-                            goto juego;
+                            goto juego_n;
                             break;
                         case 2:
                             goto menu;
@@ -259,7 +261,7 @@ int main()
                             break;
                         }
                     }else{
-                    pause(1.5);     //Pausa la pantalla por 1.5 segundos y despues continua.
+                    pause(1.5);
                     goto juego;
                     }
                 }
